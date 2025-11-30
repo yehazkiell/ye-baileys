@@ -34,7 +34,7 @@ For a **stable and tested experience**, you can install the release candidate ve
   <summary><b>npm</b></summary>
 
 ```bash
-npm install atexovi-baileys@7.5.6-rc.5
+npm install ye-baileys@7.5.6-rc.5
 ```
 </details>
 
@@ -50,7 +50,7 @@ yarn add atexovi-baileys@7.5.6-rc.5
   <summary><b>pnpm</b></summary>
 
 ```bash
-pnpm add atexovi-baileys@7.5.6-rc.5
+pnpm add ye-baileys@7.5.6-rc.5
 ```
 </details>
 
@@ -80,7 +80,7 @@ If you are using CommonJS (no `"type"` or `"type": "commonjs"` in your `package.
 
 **Import:**
 ```javascript
-const { sendMessage, someFunction } = require('atexovi-baileys');
+const { sendMessage, someFunction } = require('ye-baileys');
 ```
 
 **Export:**
@@ -99,7 +99,7 @@ module.exports = {
 > [!NOTE]
 > All interactive button examples in this README use ESM syntax, so you can just do:
 ```javascript
-import { sendMessage } from 'atexovi-baileys';
+import { sendMessage } from 'ye-baileys';
 ```
 
 ### 1. List Button
@@ -111,7 +111,7 @@ await sock.sendMessage(jid, {
   text: 'Choose an option from the list:',
   title: 'List Menu',
   subtitle: 'Select one',
-  footer: 'Sent by Atex Ovi',
+  footer: 'Sent by yehazkiell',
   interactiveButtons: [
     {
       name: 'single_select',
@@ -144,13 +144,13 @@ await sock.sendMessage(jid, {
   text: 'Need help? Call us!',
   title: 'Support',
   subtitle: 'We are available',
-  footer: 'Sent by Atex Ovi',
+  footer: 'Sent by yehazkiell',
   interactiveButtons: [
     {
       name: 'cta_call',
       buttonParamsJson: JSON.stringify({
         display_text: 'Call Now',
-        phone_number: '+6281234567890'
+        phone_number: '+62'
       })
     }
   ]
@@ -167,15 +167,15 @@ await sock.sendMessage(jid, {
 await sock.sendMessage(jid, {
   text: 'Check out our GitHub page!',
   title: 'GitHub',
-  subtitle: 'Atex Ovi Repository',
-  footer: 'Sent by Atex Ovi',
+  subtitle: 'yehazkiell Repository',
+  footer: 'Sent by yehazkiell',
   interactiveButtons: [
     {
       name: 'cta_url',
       buttonParamsJson: JSON.stringify({
         display_text: 'Visit GitHub',
-        url: 'https://github.com/atex-ovi',
-        merchant_url: 'https://github.com/atex-ovi'
+        url: 'https://github.com/yehazkiell',
+        merchant_url: 'https://github.com/yehazkiell'
       })
     }
   ]
@@ -192,7 +192,7 @@ await sock.sendMessage(jid, {
   text: 'Choose quickly!',
   title: 'Quick Reply',
   subtitle: 'Tap one button',
-  footer: 'Sent by Atex Ovi',
+  footer: 'Sent by yehazkiell',
   interactiveButtons: [
     {
       name: 'quick_reply',
@@ -216,13 +216,13 @@ await sock.sendMessage(jid, {
   text: 'Copy this link:',
   title: 'Copy Example',
   subtitle: 'Click the button to copy',
-  footer: 'Sent by Atex Ovi',
+  footer: 'Sent by yehazkiell',
   interactiveButtons: [
     {
       name: 'cta_copy',
       buttonParamsJson: JSON.stringify({
         display_text: 'Copy Link',
-        copy_code: 'https://github.com/atex-ovi'
+        copy_code: 'https://github.com/yehazkiell'
       })
     }
   ]
@@ -240,7 +240,7 @@ await sock.sendMessage(jid, {
   text: 'This is an interactive message!',
   title: 'Hello!',
   subtitle: 'Subtitle here',
-  footer: 'Sent by Atex Ovi',
+  footer: 'Sent by yehazkiell',
   interactiveButtons: [
     {
       name: 'single_select',
@@ -263,7 +263,7 @@ await sock.sendMessage(jid, {
       name: 'cta_call',
       buttonParamsJson: JSON.stringify({
         display_text: 'Call Me',
-        phone_number: '+6281234567890'
+        phone_number: '+62'
       })
     },
 
@@ -271,8 +271,8 @@ await sock.sendMessage(jid, {
       name: 'cta_url',
       buttonParamsJson: JSON.stringify({
         display_text: 'Visit GitHub',
-        url: 'https://github.com/atex-ovi',
-        merchant_url: 'https://github.com/atex-ovi'
+        url: 'https://github.com/yehazkiell',
+        merchant_url: 'https://github.com/yehazkiell'
       })
     },
 
@@ -288,7 +288,7 @@ await sock.sendMessage(jid, {
       name: 'cta_copy',
       buttonParamsJson: JSON.stringify({
         display_text: 'Copy Link',
-        copy_code: 'https://github.com/atex-ovi'
+        copy_code: 'https://github.com/yehazkiell'
       })
     }
   ]
@@ -319,15 +319,6 @@ For full documentation, please refer to [Baileys official GitHub](https://github
     <img src="https://img.shields.io/badge/Node.js-%3E%3D20-339933?style=flat&logo=node.js&logoColor=white" alt="Node.js version">
 - Supports multi-device WhatsApp
 - Dependencies installed via `npm install`
-
-<br>
-
-## Support
-If you find this project useful, consider supporting the development:
-
-[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://saweria.co/atexovi)
-
-<br>
 
 ## License
 [MIT](./LICENSE.md)
