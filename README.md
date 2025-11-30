@@ -1,60 +1,71 @@
-ye-baileys
+<h1 align="center">ye-baileys</h1>
+<p align="center">
 
-Features & Supported UI Types
+## Features & Supported UI Types
 
-ye-baileys supports a variety of interactive WhatsApp message types and core features optimized for multi-device bots:
+Atexovi-Baileys supports a variety of interactive WhatsApp message types and core features optimized for multi-device bots:
 
-Feature / UI Type Description
-List Button Menus Single select menus for users to choose one option.
-Quick Reply Buttons Simple tap buttons for quick responses.
-CTA URL Buttons Opens external links in browser.
-CTA Call Buttons Directly initiate a call to a phone number.
-Copy Buttons Copies a pre-defined text or URL to clipboard.
-Button Combinations Mix multiple button types in a single message.
-Multi-Device Support Works seamlessly with WhatsApp Multi-Device API.
-Encrypted Messaging Uses libsignal from Meta for secure communication.
-Optimized Media Handling Efficient media downloading and decoding.
-Custom Patches & Fixes Improved connection stability and bug fixes.
+| Feature / UI Type          | Description                                    |
+|----------------------------|------------------------------------------------|
+| **List Button Menus**      | Single select menus for users to choose one option. |
+| **Quick Reply Buttons**    | Simple tap buttons for quick responses.      |
+| **CTA URL Buttons**        | Opens external links in browser.             |
+| **CTA Call Buttons**       | Directly initiate a call to a phone number.  |
+| **Copy Buttons**           | Copies a pre-defined text or URL to clipboard. |
+| **Button Combinations**    | Mix multiple button types in a single message. |
+| **Multi-Device Support**   | Works seamlessly with WhatsApp Multi-Device API. |
+| **Encrypted Messaging**    | Uses libsignal from Meta for secure communication. |
+| **Optimized Media Handling** | Efficient media downloading and decoding.  |
+| **Custom Patches & Fixes** | Improved connection stability and bug fixes. |
 
-[!NOTE]
-All other APIs and core features follow Baileys official
+> [!NOTE]
+> All other APIs and core features follow [Baileys official](https://github.com/WhiskeySockets/Baileys )
 
 <br>
 
-Installation
+## Installation
 
-[!IMPORTANT]
-The current latest version (v7.5.6) is not recommended due to known issues, including occasional connection losses and pairing problems with WhatsApp.
-Please note that theRC version is not final and is still under active development. Further improvements and fixes will continue to be made. Use it primarily for testing and evaluation purposes.
-For astable and tested experience, you can install the release candidate version by running:
+> [!IMPORTANT]
+> The current latest version (v7.5.6) is **not recommended** due to known issues, including occasional connection losses and pairing problems with WhatsApp.
+Please note that the **RC version is not final** and is still under active development. Further improvements and fixes will continue to be made. Use it primarily for testing and evaluation purposes.
+For a **stable and tested experience**, you can install the release candidate version by running:
+
+<details>
+  <summary><b>npm</b></summary>
 
 ```bash
 npm install ye-baileys@7.5.6-rc.5
 ```
+</details>
+
+<details>
+  <summary><b>yarn</b></summary>
 
 ```bash
 yarn add ye-baileys@7.5.6-rc.5
 ```
+</details>
+
+<details>
+  <summary><b>pnpm</b></summary>
 
 ```bash
 pnpm add ye-baileys@7.5.6-rc.5
 ```
+</details>
 
 <br>
 
-Module Import and Export
+## Module Import and Export
 
-1. ESM (ECMAScript Module)
+### 1. ESM (ECMAScript Module)
+If your `package.json` uses `"type": "module"`:
 
-If your package.json uses "type": "module":
-
-Import:
-
+**Import:**
 ```javascript
 import { sendMessage, someFunction } from 'ye-baileys';
 ```
-
-Export:
+**Export:**
 
 ```javascript
 export function someFunction() {
@@ -64,36 +75,36 @@ export function someFunction() {
 
 <br>
 
-2. CJS (CommonJS)
+### 2. CJS (CommonJS)
+If you are using CommonJS (no `"type"` or `"type": "commonjs"` in your `package.json`):
 
-If you are using CommonJS (no "type" or "type": "commonjs" in your package.json):
-
-Import:
-
+**Import:**
 ```javascript
 const { sendMessage, someFunction } = require('ye-baileys');
 ```
 
-Export:
-
+**Export:**
 ```javascript
 module.exports = {
   // your code here
 };
 ```
 
+
 <br>
 
-Example Usage (Interactive Message Button)
 
-[!NOTE]
-All interactive button examples in this README use ESM syntax, so you can just do:
+## Example Usage (Interactive Message Button)
 
+> [!NOTE]
+> All interactive button examples in this README use ESM syntax, so you can just do:
 ```javascript
 import { sendMessage } from 'ye-baileys';
 ```
 
-1. List Button
+### 1. List Button
+<details>
+  <summary>Show Example</summary>
 
 ```javascript
 await sock.sendMessage(jid, {
@@ -122,7 +133,11 @@ await sock.sendMessage(jid, {
 });
 ```
 
-2. Call Button
+</details>
+
+### 2. Call Button
+<details>
+  <summary>Show Example</summary>
 
 ```javascript
 await sock.sendMessage(jid, {
@@ -142,7 +157,11 @@ await sock.sendMessage(jid, {
 });
 ```
 
-3. URL Button
+</details>
+
+### 3. URL Button
+<details>
+  <summary>Show Example</summary>
 
 ```javascript
 await sock.sendMessage(jid, {
@@ -155,15 +174,18 @@ await sock.sendMessage(jid, {
       name: 'cta_url',
       buttonParamsJson: JSON.stringify({
         display_text: 'Visit GitHub',
-        url: 'https://github.com/yehazkiell',
-        merchant_url: 'https://github.com/yehazkiell'
+        url: 'https://github.com/yehazkiell ',
+        merchant_url: 'https://github.com/yehazkiell '
       })
     }
   ]
 });
 ```
+</details>
 
-4. Quick Reply Button
+### 4. Quick Reply Button
+<details>
+  <summary>Show Example</summary>
 
 ```javascript
 await sock.sendMessage(jid, {
@@ -183,7 +205,11 @@ await sock.sendMessage(jid, {
 });
 ```
 
-5. Copy Button
+</details>
+
+### 5. Copy Button
+<details>
+  <summary>Show Example</summary>
 
 ```javascript
 await sock.sendMessage(jid, {
@@ -196,14 +222,18 @@ await sock.sendMessage(jid, {
       name: 'cta_copy',
       buttonParamsJson: JSON.stringify({
         display_text: 'Copy Link',
-        copy_code: 'https://github.com/yehazkiell'
+        copy_code: 'https://github.com/yehazkiell '
       })
     }
   ]
 });
 ```
 
-6. Combination All Button
+</details>
+
+### 6. Combination All Button
+<details>
+  <summary>Show Example</summary>
 
 ```javascript
 await sock.sendMessage(jid, {
@@ -241,8 +271,8 @@ await sock.sendMessage(jid, {
       name: 'cta_url',
       buttonParamsJson: JSON.stringify({
         display_text: 'Visit GitHub',
-        url: 'https://github.com/yehazkiell',
-        merchant_url: 'https://github.com/yehazkiell'
+        url: 'https://github.com/yehazkiell ',
+        merchant_url: 'https://github.com/yehazkiell '
       })
     },
 
@@ -258,40 +288,37 @@ await sock.sendMessage(jid, {
       name: 'cta_copy',
       buttonParamsJson: JSON.stringify({
         display_text: 'Copy Link',
-        copy_code: 'https://github.com/yehazkiell'
+        copy_code: 'https://github.com/yehazkiell '
       })
     }
   ]
 });
 ```
+</details>
 
 <br>
 
-Disclaimer
+## Disclaimer
 
-[!CAUTION]
-
-· This is a modified version of the official Baileys WhatsApp Web API for personal projects and private bot frameworks.
-· Please respect WhatsApp's terms of service.
-· All core APIs and features remain based on Baileys official; this modification does not bypass or alter WhatsApp restrictions.
-· Use responsibly and at your own risk.
-
-<br>
-
-Documentation
-
-For full documentation, please refer to Baileys official GitHub
+> [!CAUTION]
+> - This is a **modified version** of the official [Baileys WhatsApp Web API](https://github.com/WhiskeySockets/Baileys ) for personal projects and private bot frameworks.  
+> - Please **respect WhatsApp's terms of service**.  
+> - All core APIs and features remain based on Baileys official; this modification **does not bypass or alter WhatsApp restrictions**.  
+> - Use responsibly and at your own risk.
 
 <br>
 
-Requirements
+## Documentation
+For full documentation, please refer to [Baileys official GitHub](https://github.com/WhiskeySockets/Baileys )
 
-· 🟢 Node.js >= 20
-  <a href="https://nodejs.org/en/" target="_blank">
-  <img src="https://img.shields.io/badge/Node.js-%3E%3D20-339933?style=flat&logo=node.js&logoColor=white" alt="Node.js version">
-· Supports multi-device WhatsApp
-· Dependencies installed via npm install
+<br>
 
-License
+## Requirements
+- **🟢 Node.js >= 20**
+  <a href="https://nodejs.org/en/ " target="_blank">
+    <img src="https://img.shields.io/badge/Node.js-%3E%3D20-339933?style=flat&logo=node.js&logoColor=white " alt="Node.js version">
+- Supports multi-device WhatsApp
+- Dependencies installed via `npm install`
 
-MIT
+## License
+[MIT](./LICENSE.md)
