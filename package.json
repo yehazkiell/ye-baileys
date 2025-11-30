@@ -1,7 +1,7 @@
 {
-  "name": "atexovi-baileys",
+  "name": "ye-baileys",
   "version": "7.5.6-rc.5",
-  "description": "Atex Ovi modified Baileys WhatsApp API for custom bots and personal projects",
+  "description": "yehazkiel modified Baileys WhatsApp API for custom bots and personal projects",
   "keywords": [
     "baileys",
     "whatsapp",
@@ -11,15 +11,15 @@
     "automation",
     "multi-device",
     "libsignal",
-    "atexovi"
+    "yehazkiel"
   ],
-  "homepage": "https://github.com/atex-ovi/atexovi-baileys",
+  "homepage": "https://github.com/yehazkiell/ye-baileys",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/atex-ovi/atexovi-baileys.git"
+    "url": "git+https://github.com/yehazkiell/ye-baileys.git"
   },
   "license": "MIT",
-  "author": "Atex Ovi",
+  "author": "yehazkiel",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
