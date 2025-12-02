@@ -61,5 +61,5 @@ Users are strongly advised **not** to use this version.
 Install the latest RC instead:
 
 ```bash
-npm i atexovi-baileys@7.5.6-rc.5
+npm i ye-baileys@7.5.6-rc.5
 ```
