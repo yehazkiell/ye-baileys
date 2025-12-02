@@ -38,8 +38,8 @@
     "gen:protobuf": "sh WAProto/GenerateStatics.sh",
     "lint": "eslint src --ext .js,.ts,.jsx,.tsx",
     "lint:fix": "eslint src --fix --ext .js,.ts,.jsx,.tsx",
-    "prepack": "echo 'Atexovi Baileys'",
-    "prepare": "echo 'Atexovi Baileys'",
+    "prepack": "echo 'yehazkiell Baileys'",
+    "prepare": "echo 'yehazkiell Baileys'",
     "preinstall": "node ./engine-requirements.js",
     "release": "release-it",
     "test": "jest"
@@ -58,7 +58,7 @@
     "cheerio": "^1.0.0-rc.10",
     "gradient-string": "^3.0.0",
     "libphonenumber-js": "^1.10.20",
-    "libsignal": "npm:@atex-ovi/libsignal-node",
+    "libsignal": "npm:@whiskeysockets/libsignal-node",
     "lodash": "^4.17.21",
     "music-metadata": "^11.9.0",
     "pino": "^10.1.0",
@@ -94,13 +94,28 @@
     "sharp": "^0.34.4"
   },
   "peerDependenciesMeta": {
-    "jimp": { "optional": true },
-    "link-preview-js": { "optional": true },
-    "qrcode-terminal": { "optional": true },
-    "sharp": { "optional": true }
+    "jimp": {
+      "optional": true
+    },
+    "link-preview-js": {
+      "optional": true
+    },
+    "qrcode-terminal": {
+      "optional": true
+    },
+    "sharp": {
+      "optional": true
+    }
   },
   "packageManager": "yarn@1.22.19",
   "engines": {
     "node": ">=20.0.0"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/yehazkiell/ye-baileys/issues"
   }
 }
