@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## [7.5.7] – 2024-05-24
+### Improvements
+- Added support for `CALL` and `ORDER` message types in `sendMessage`.
+- Refactored `NotForrAll` implementation for better clarity and feature support.
+- Upgraded core dependencies (`axios`, `ws`, `pino`, etc.) for better performance and security.
+- Beautified README.md with better documentation and examples.
+
+---
+
 ## [7.5.6-rc.5] – 2025-11-16
 ### Stable & Verified
 This release candidate has passed extensive internal testing and is currently the most stable build.
