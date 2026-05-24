@@ -1,324 +1,138 @@
-<h1 align="center">ye-baileys</h1>
-<p align="center">
+<div align="center">
+  <img src="https://telegra.ph/file/096181b5c464c8c7f3e82.jpg" alt="ye-baileys" width="200" />
+  <h1>ye-baileys</h1>
+  <p>Modified Baileys WhatsApp API for custom bots and personal projects.</p>
 
-## Features & Supported UI Types
+  <p>
+    <a href="https://www.npmjs.com/package/ye-baileys"><img src="https://img.shields.io/npm/v/ye-baileys?style=for-the-badge" alt="version" /></a>
+    <a href="./LICENSE.md"><img src="https://img.shields.io/npm/l/ye-baileys?style=for-the-badge" alt="license" /></a>
+    <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-%3E%3D20-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="node" /></a>
+  </p>
+</div>
 
-Atexovi-Baileys supports a variety of interactive WhatsApp message types and core features optimized for multi-device bots:
+---
 
-| Feature / UI Type          | Description                                    |
-|----------------------------|------------------------------------------------|
-| **List Button Menus**      | Single select menus for users to choose one option. |
-| **Quick Reply Buttons**    | Simple tap buttons for quick responses.      |
-| **CTA URL Buttons**        | Opens external links in browser.             |
-| **CTA Call Buttons**       | Directly initiate a call to a phone number.  |
-| **Copy Buttons**           | Copies a pre-defined text or URL to clipboard. |
-| **Button Combinations**    | Mix multiple button types in a single message. |
-| **Multi-Device Support**   | Works seamlessly with WhatsApp Multi-Device API. |
-| **Encrypted Messaging**    | Uses libsignal from Meta for secure communication. |
-| **Optimized Media Handling** | Efficient media downloading and decoding.  |
-| **Custom Patches & Fixes** | Improved connection stability and bug fixes. |
+## 🚀 Features
 
-> [!NOTE]
-> All other APIs and core features follow [Baileys official](https://github.com/WhiskeySockets/Baileys )
+**ye-baileys** provides an enhanced experience for building WhatsApp bots with support for modern interactive message types and improved stability.
 
-<br>
+- ✅ **Full Interactive Support**: List menus, quick replies, CTA buttons (URL, Call, Copy).
+- ✅ **New Message Types**: Seamlessly send `ALBUM`, `EVENT`, `POLL_RESULT`, `CALL`, and `ORDER` messages.
+- ✅ **Multi-Device Ready**: Built on the latest WhatsApp Multi-Device API.
+- ✅ **Stability Patches**: Custom fixes for connection stability and pairing reliability.
+- ✅ **Optimized Performance**: Better memory management and media handling.
 
-## Installation
+---
 
-> [!IMPORTANT]
-> The current latest version (v7.5.6) is **not recommended** due to known issues, including occasional connection losses and pairing problems with WhatsApp.
-Please note that the **RC version is not final** and is still under active development. Further improvements and fixes will continue to be made. Use it primarily for testing and evaluation purposes.
-For a **stable and tested experience**, you can install the release candidate version by running:
+## 📦 Installation
 
-<details>
-  <summary><b>npm</b></summary>
+To get started, install the package using your preferred package manager:
 
 ```bash
-npm install ye-baileys@7.5.6-rc.5
+# Using npm
+npm install ye-baileys
+
+# Using yarn
+yarn add ye-baileys
+
+# Using pnpm
+pnpm add ye-baileys
 ```
-</details>
 
-<details>
-  <summary><b>yarn</b></summary>
+---
 
-```bash
-yarn add ye-baileys@7.5.6-rc.5
-```
-</details>
+## 🛠️ Usage Examples
 
-<details>
-  <summary><b>pnpm</b></summary>
-
-```bash
-pnpm add ye-baileys@7.5.6-rc.5
-```
-</details>
-
-<br>
-
-## Module Import and Export
-
-### 1. ESM (ECMAScript Module)
-If your `package.json` uses `"type": "module"`:
-
-**Import:**
-```javascript
-import { sendMessage, someFunction } from 'ye-baileys';
-```
-**Export:**
+### Initialize Connection
 
 ```javascript
-export function someFunction() {
-  // your code here
-}
+import makeWASocket, { useMultiFileAuthState } from 'ye-baileys';
+
+const { state, saveCreds } = await useMultiFileAuthState('auth_info_baileys');
+
+const sock = makeWASocket({
+    auth: state,
+    printQRInTerminal: true
+});
+
+sock.ev.on('creds.update', saveCreds);
 ```
 
-<br>
-
-### 2. CJS (CommonJS)
-If you are using CommonJS (no `"type"` or `"type": "commonjs"` in your `package.json`):
-
-**Import:**
-```javascript
-const { sendMessage, someFunction } = require('ye-baileys');
-```
-
-**Export:**
-```javascript
-module.exports = {
-  // your code here
-};
-```
-
-
-<br>
-
-
-## Example Usage (Interactive Message Button)
-
-> [!NOTE]
-> All interactive button examples in this README use ESM syntax, so you can just do:
-```javascript
-import { sendMessage } from 'ye-baileys';
-```
-
-### 1. List Button
-<details>
-  <summary>Show Example</summary>
+### Interactive Buttons (Native Flow)
 
 ```javascript
 await sock.sendMessage(jid, {
-  text: 'Choose an option from the list:',
-  title: 'List Menu',
-  subtitle: 'Select one',
-  footer: 'Sent by yehazkiell',
-  interactiveButtons: [
-    {
-      name: 'single_select',
-      buttonParamsJson: JSON.stringify({
-        title: 'Select Option',
-        sections: [
-          {
-            title: 'Main Options',
-            highlight_label: 'Recommended',
-            rows: [
-              { header: 'Header 1', title: 'Option 1', description: 'Description 1', id: 'id1' },
-              { header: 'Header 2', title: 'Option 2', description: 'Description 2', id: 'id2' }
-            ]
-          }
-        ]
-      })
-    }
-  ]
+    text: 'Check out these options!',
+    footer: 'Powered by ye-baileys',
+    interactiveButtons: [
+        {
+            name: 'cta_url',
+            buttonParamsJson: JSON.stringify({
+                display_text: 'Visit GitHub',
+                url: 'https://github.com/yehazkiell/ye-baileys'
+            })
+        },
+        {
+            name: 'quick_reply',
+            buttonParamsJson: JSON.stringify({
+                display_text: 'Ping Me',
+                id: 'ping-id'
+            })
+        }
+    ]
 });
 ```
 
-</details>
+### New Enhanced Message Types
 
-### 2. Call Button
-<details>
-  <summary>Show Example</summary>
-
+#### 📅 Send Event
 ```javascript
 await sock.sendMessage(jid, {
-  text: 'Need help? Call us!',
-  title: 'Support',
-  subtitle: 'We are available',
-  footer: 'Sent by yehazkiell',
-  interactiveButtons: [
-    {
-      name: 'cta_call',
-      buttonParamsJson: JSON.stringify({
-        display_text: 'Call Now',
-        phone_number: '+62'
-      })
+    eventMessage: {
+        name: 'Community Meetup',
+        description: 'Monthly developer gathering',
+        location: {
+            degreesLatitude: -6.200000,
+            degreesLongitude: 106.816666,
+            name: 'Jakarta, Indonesia'
+        },
+        startTime: Date.now() + 86400000 // Tomorrow
     }
-  ]
 });
 ```
 
-</details>
-
-### 3. URL Button
-<details>
-  <summary>Show Example</summary>
-
+#### 🛒 Send Order
 ```javascript
 await sock.sendMessage(jid, {
-  text: 'Check out our GitHub page!',
-  title: 'GitHub',
-  subtitle: 'yehazkiell Repository',
-  footer: 'Sent by yehazkiell',
-  interactiveButtons: [
-    {
-      name: 'cta_url',
-      buttonParamsJson: JSON.stringify({
-        display_text: 'Visit GitHub',
-        url: 'https://github.com/yehazkiell ',
-        merchant_url: 'https://github.com/yehazkiell '
-      })
+    orderMessage: {
+        id: 'order-123',
+        title: 'Awesome T-Shirt',
+        text: 'Limited edition community tee',
+        amount: 150000,
+        currency: 'IDR',
+        itemCount: 1,
+        seller: 'yehazkiel@s.whatsapp.net',
+        thumbnail: Buffer.from(...) // or { url: '...' }
     }
-  ]
-});
-```
-</details>
-
-### 4. Quick Reply Button
-<details>
-  <summary>Show Example</summary>
-
-```javascript
-await sock.sendMessage(jid, {
-  text: 'Choose quickly!',
-  title: 'Quick Reply',
-  subtitle: 'Tap one button',
-  footer: 'Sent by yehazkiell',
-  interactiveButtons: [
-    {
-      name: 'quick_reply',
-      buttonParamsJson: JSON.stringify({
-        display_text: 'Click Me!',
-        id: 'quick_id'
-      })
-    }
-  ]
 });
 ```
 
-</details>
+---
 
-### 5. Copy Button
-<details>
-  <summary>Show Example</summary>
+## 📄 Documentation
 
-```javascript
-await sock.sendMessage(jid, {
-  text: 'Copy this link:',
-  title: 'Copy Example',
-  subtitle: 'Click the button to copy',
-  footer: 'Sent by yehazkiell',
-  interactiveButtons: [
-    {
-      name: 'cta_copy',
-      buttonParamsJson: JSON.stringify({
-        display_text: 'Copy Link',
-        copy_code: 'https://github.com/yehazkiell '
-      })
-    }
-  ]
-});
-```
+For full documentation and advanced usage, please refer to the [Official Baileys Documentation](https://github.com/WhiskeySockets/Baileys).
 
-</details>
+---
 
-### 6. Combination All Button
-<details>
-  <summary>Show Example</summary>
+## ⚠️ Disclaimer
 
-```javascript
-await sock.sendMessage(jid, {
-  text: 'This is an interactive message!',
-  title: 'Hello!',
-  subtitle: 'Subtitle here',
-  footer: 'Sent by yehazkiell',
-  interactiveButtons: [
-    {
-      name: 'single_select',
-      buttonParamsJson: JSON.stringify({
-        title: 'Choose an Option',
-        sections: [
-          {
-            title: 'Main Options',
-            highlight_label: 'Recommended',
-            rows: [
-              { header: 'Header 1', title: 'Option 1', description: 'Description 1', id: 'id1' },
-              { header: 'Header 2', title: 'Option 2', description: 'Description 2', id: 'id2' }
-            ]
-          }
-        ]
-      })
-    },
+- This is a **modified version** of the official Baileys WhatsApp Web API.
+- Use this library responsibly and respect WhatsApp's Terms of Service.
+- The developers are not responsible for any misuse or account bans.
 
-    {
-      name: 'cta_call',
-      buttonParamsJson: JSON.stringify({
-        display_text: 'Call Me',
-        phone_number: '+62'
-      })
-    },
+---
 
-    {
-      name: 'cta_url',
-      buttonParamsJson: JSON.stringify({
-        display_text: 'Visit GitHub',
-        url: 'https://github.com/yehazkiell ',
-        merchant_url: 'https://github.com/yehazkiell '
-      })
-    },
+## 📜 License
 
-    {
-      name: 'quick_reply',
-      buttonParamsJson: JSON.stringify({
-        display_text: 'Click Me!',
-        id: 'quick_id'
-      })
-    },
-    
-    {
-      name: 'cta_copy',
-      buttonParamsJson: JSON.stringify({
-        display_text: 'Copy Link',
-        copy_code: 'https://github.com/yehazkiell '
-      })
-    }
-  ]
-});
-```
-</details>
-
-<br>
-
-## Disclaimer
-
-> [!CAUTION]
-> - This is a **modified version** of the official [Baileys WhatsApp Web API](https://github.com/WhiskeySockets/Baileys ) for personal projects and private bot frameworks.  
-> - Please **respect WhatsApp's terms of service**.  
-> - All core APIs and features remain based on Baileys official; this modification **does not bypass or alter WhatsApp restrictions**.  
-> - Use responsibly and at your own risk.
-
-<br>
-
-## Documentation
-For full documentation, please refer to [Baileys official GitHub](https://github.com/WhiskeySockets/Baileys )
-
-<br>
-
-## Requirements
-- **🟢 Node.js >= 20**
-  <a href="https://nodejs.org/en/ " target="_blank">
-    <img src="https://img.shields.io/badge/Node.js-%3E%3D20-339933?style=flat&logo=node.js&logoColor=white " alt="Node.js version">
-- Supports multi-device WhatsApp
-- Dependencies installed via `npm install`
-
-## License
-[MIT](./LICENSE.md)
+This project is licensed under the [MIT License](./LICENSE.md).

@@ -146,6 +146,26 @@ declare namespace NotForrAll {
         name: string;
         pollVotes: PollVote[];
     }
+
+    interface CallMessage {
+        time?: number | string;
+        type?: number;
+        title: string;
+    }
+
+    interface OrderMessage {
+        id: string;
+        thumbnail: Buffer | { url: string };
+        itemCount: number;
+        status?: number;
+        surface?: number;
+        title: string;
+        text: string;
+        seller: string;
+        token?: string;
+        amount: number;
+        currency?: string;
+    }
  
     interface MessageContent {
         requestPaymentMessage?: PaymentMessage;
@@ -154,6 +174,8 @@ declare namespace NotForrAll {
         albumMessage?: AlbumItem[];
         eventMessage?: EventMessage;
         pollResultMessage?: PollResultMessage;
+        callMessage?: CallMessage;
+        orderMessage?: OrderMessage;
         sender?: string;
     }
 
@@ -178,7 +200,7 @@ declare class NotForrAll {
         relayMessageFn?: (jid: string, content: any, options?: any) => Promise<any>
     );
     
-    detectType(content: NotForrAll.MessageContent): 'PAYMENT' | 'PRODUCT' | 'INTERACTIVE' | 'ALBUM' | 'EVENT' | 'POLL_RESULT' | null;
+    detectType(content: NotForrAll.MessageContent): 'PAYMENT' | 'PRODUCT' | 'INTERACTIVE' | 'ALBUM' | 'EVENT' | 'POLL_RESULT' | 'CALL' | 'ORDER' | null;
 
     handlePayment(
         content: { requestPaymentMessage: NotForrAll.PaymentMessage },
@@ -211,6 +233,18 @@ declare class NotForrAll {
     
     handlePollResult(
         content: { pollResultMessage: NotForrAll.PollResultMessage },
+        jid: string,
+        quoted?: proto.IWebMessageInfo
+    ): Promise<any>;
+
+    handleCall(
+        content: { callMessage: NotForrAll.CallMessage },
+        jid: string,
+        quoted?: proto.IWebMessageInfo
+    ): Promise<any>;
+
+    handleOrder(
+        content: { orderMessage: NotForrAll.OrderMessage },
         jid: string,
         quoted?: proto.IWebMessageInfo
     ): Promise<any>;
