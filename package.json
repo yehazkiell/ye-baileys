@@ -1,6 +1,6 @@
 {
   "name": "ye-baileys",
-  "version": "7.5.6-rc.5",
+  "version": "7.5.7",
   "description": "yehazkiel modified Baileys WhatsApp API for custom bots and personal projects",
   "keywords": [
     "baileys",
@@ -48,23 +48,23 @@
     "@adiwajshing/keyed-db": "^0.2.4",
     "@cacheable/node-cache": "^1.4.0",
     "@hapi/boom": "^10.0.1",
-    "acorn": "^8.15.0",
+    "acorn": "^8.16.0",
     "acorn-walk": "^8.3.4",
     "async-mutex": "^0.5.0",
     "audio-decode": "^2.1.3",
-    "axios": "^1.6.0",
+    "axios": "^1.7.9",
     "cache-manager": "^7.2.4",
-    "chalk": "^5.6.2",
-    "cheerio": "^1.0.0-rc.10",
+    "chalk": "^5.4.1",
+    "cheerio": "^1.0.0",
     "gradient-string": "^3.0.0",
     "libphonenumber-js": "^1.10.20",
     "libsignal": "npm:@atex-ovi/libsignal-node",
     "lodash": "^4.17.21",
     "music-metadata": "^11.9.0",
-    "pino": "^10.1.0",
+    "pino": "^9.5.0",
     "protobufjs": "^7.5.4",
     "uuid": "^13.0.0",
-    "ws": "^8.13.0"
+    "ws": "^8.18.0"
   },
   "devDependencies": {
     "@adiwajshing/eslint-config": "github:adiwajshing/eslint-config",
