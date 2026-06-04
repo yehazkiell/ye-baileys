@@ -1,0 +1,16 @@
+{
+  "users": {},
+  "groups": {},
+  "settings": {},
+  "pets": {
+    "user@s": {
+      "whatsapp": {
+        "net": {
+          "level": 1,
+          "exp": 0,
+          "hunger": 50
+        }
+      }
+    }
+  }
+}

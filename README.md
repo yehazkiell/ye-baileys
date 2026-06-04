@@ -1,24 +1,86 @@
-# Ye-Baileys Ultimate 🚀
+# 🚀 Ye-Baileys Ultimate v7.5.7
 
-Bot WhatsApp Modular dengan Sistem Biner Murni dan Dukungan v7.5.7.
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Version](https://img.shields.io/badge/version-7.5.7-green.svg)
+![Status](https://img.shields.io/badge/status-Ultimate-orange.svg)
 
-## Fitur Utama
-1. **switch yehaz**: Struktur perintah yang unik.
-2. **Binary Strings**: Seluruh teks internal di kode menggunakan biner.
-3. **Database Ringan**: Menggunakan JSON dan sistem berkas.
-4. **AI Multi-Karakter**: Ubah kepribadian bot sesuka hati.
-5. **Keamanan**: Anti-Delete dan Rate Limiter per-JID.
+Selamat datang di **Ye-Baileys Ultimate**, bot WhatsApp paling canggih, ringan, dan seru yang dibangun di atas core Baileys terbaru. Bot ini dirancang untuk kecepatan, keamanan, dan interaksi pengguna yang mendalam.
 
-## Instalasi
-1. Clone repo.
-2. `npm install`.
-3. Isi API Key di `.env`.
-4. `npm start`.
+---
 
-## Perintah (234+)
-- .halo
-- .menu
-- .kirim <jumlah> emoji <emoji>
-- .ai <tanya>
-- .ganti karakter <nama>
-... dan 230 perintah lainnya sesuai permintaan.
+## 🌟 Kenapa Memilih Ye-Baileys?
+
+1. **Modular & Ringan**: Kode terstruktur rapi di folder `src/`, sangat mudah untuk dikembangkan.
+2. **Keamanan Biner**: Seluruh teks internal kode dienkripsi menggunakan format biner untuk privasi maksimal.
+3. **Fitur RPG Interaktif**: Rawat pet virtualmu, tingkatkan level, dan bersaing dengan teman!
+4. **AI Multi-Karakter**: Pilih asistenmu sendiri! Mulai dari si ceria **Miku** hingga si dingin **Makima**.
+5. **Dukungan v7.5.7**: Mendukung tipe pesan terbaru seperti `CALL` dan `ORDER`.
+
+---
+
+## 🛠️ Instalasi Cepat
+
+Cukup ikuti langkah mudah berikut:
+
+1. **Clone Repositori**:
+   ```bash
+   git clone https://github.com/user/ye-baileys.git
+   cd ye-baileys
+   ```
+
+2. **Pasang Dependensi**:
+   ```bash
+   npm install
+   ```
+
+3. **Konfigurasi**:
+   Salin `.env.example` menjadi `.env` dan lengkapi datanya.
+
+4. **Jalankan**:
+   ```bash
+   node src/index.js
+   ```
+
+---
+
+## 🎮 Fitur & Perintah
+
+### 👤 Umum
+- `.halo` - Sapa bot untuk memastikan dia online.
+- `.menu` - Tampilkan pusat komando.
+
+### 🤖 AI (Artificial Intelligence)
+- `.ai <pertanyaan>` - Tanya apa saja pada asisten AI.
+- `.ganti karakter <miku/makima>` - Ubah kepribadian AI bot secara instan.
+
+### 🐾 Virtual Pet (RPG)
+- `.pet` - Cek statistik pet kesayanganmu (Level, Exp, Hunger).
+- `.pet feed` - Beri makan agar tidak lapar.
+- `.pet train` - Latih pet agar naik level lebih cepat.
+
+### ⚡ Utilitas & Fun
+- `.kirim <jumlah> emoji <emoji>` - Kirim spam emoji secara massal (Limit: 100).
+
+---
+
+## 📂 Struktur Proyek
+
+```text
+├── lib/           # Baileys Core Library v7.5.7
+├── src/
+│   ├── ai/        # Adaptor AI & Kepribadian
+│   ├── constants/ # Konstanta Biner Internal
+│   ├── database/  # Sistem Penyimpanan JSON
+│   ├── utils/     # Helper Fungsi
+│   ├── index.js   # Entry Point Utama
+│   └── handler.js # Otak Pemrosesan Perintah
+└── README.md      # Dokumentasi Cantik Ini
+```
+
+---
+
+## 📜 Lisensi
+Proyek ini dilisensikan di bawah **MIT License**. Gunakan dengan bijak dan kreatif!
+
+---
+*Dibuat dengan ❤️ oleh Jules untuk komunitas Ye-Baileys.*

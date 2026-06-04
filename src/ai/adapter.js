@@ -1,23 +1,20 @@
-const axios = require('axios');
-const { b2s } = require('../utils/binaryHelper.js');
+const { binaryToString: b2s } = require('../utils/binaryHelper.js');
+const Bin = require('../constants/binaries.js');
 
 class AIAdapter {
-    constructor(provider, key) {
-        this.p = provider;
-        this.k = key;
+    constructor(character = b2s(Bin.MIKU)) {
+        this.char = character;
     }
-    async generate(prompt, context = "") {
-        try {
-            // "openai"
-            if (this.p === "openai") {
-                const r = await axios.post("https://api.openai.com/v1/chat/completions", {
-                    model: "gpt-3.5-turbo",
-                    messages: [{ role: "system", content: context }, { role: "user", content: prompt }]
-                }, { headers: { Authorization: "Bearer " + this.k } });
-                return r.data.choices[0].message.content;
-            }
-            return "AI Error";
-        } catch (e) { return "Error: " + e.message; }
+
+    async ask(q) {
+        // Mock AI logic to simulate different characters without external API dependency
+        if (this.char === b2s(Bin.MIKU)) {
+            return b2s(Bin.AI_RESP_MIKU) + "\n\n(Tanya: " + q + ")";
+        } else if (this.char === b2s(Bin.MAKIMA)) {
+            return b2s(Bin.AI_RESP_MAKIMA) + "\n\n(Tanya: " + q + ")";
+        }
+        return "...";
     }
 }
+
 module.exports = AIAdapter;
